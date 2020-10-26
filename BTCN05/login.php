@@ -9,10 +9,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        
-
         $user = findUserByUsername($username);
-        var_dump($user);
         if(!$user){
             $error = 'User does not exist!';
         }

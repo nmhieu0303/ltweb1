@@ -3,7 +3,15 @@ function sum($a,$b){
     return $a+$b;
 }
 
-
+function addUser($listUser,$username,$password,$email){
+    $user = array(
+        'username' => $username,
+        'password' => $password,
+        'email'=>$email
+    );
+    array_push($listUser,$user);
+    file_put_contents('./data.json',json_encode($listUser));
+}
 
 function findUserByUsername($username){
     $content = file_get_contents('./data.json');

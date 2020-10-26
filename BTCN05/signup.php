@@ -20,13 +20,7 @@
         }
         else{
             //Assign the user to session
-            $user = array(
-                'username' => $username,
-                'password' => $password,
-            );
-            array_push($users,$user);
-            file_put_contents('./data.json',json_encode($users));
-
+            addUser($users,$username,$password,$email);
             $_SESSION['username'] = $user['username'];
             $_SESSION['password'] = $user['password'];
             header('Location: index.php');
@@ -51,6 +45,10 @@
     <div class="form-group">
         <label>Password</label> 
         <input type="password" class="form-control" name="password" required>
+    </div>
+    <div class="form-group">
+        <label>Password confirm</label> 
+        <input type="password" class="form-control" name="passwordConfirm" required>
     </div>
     <div class="form-group">
         <label>Email</label> 
